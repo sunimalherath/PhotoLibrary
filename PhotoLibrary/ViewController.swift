@@ -29,6 +29,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
+        saveImage()
+    }
+    
+    private func saveImage() {
+        let imageData = ImageView.image?.jpegData(compressionQuality: 0.6)
+        let compressedJpegImage = UIImage(data: imageData!)
+        
+        UIImageWriteToSavedPhotosAlbum(compressedJpegImage!, nil, nil, nil)
+        
+        showAlert(withMessage: "Your image has been saved!")
+    }
+    
+    private func showAlert(withMessage message: String) {
+        let alertController = UIAlertController(title: "Complete", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
