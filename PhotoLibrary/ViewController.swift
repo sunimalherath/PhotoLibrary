@@ -54,5 +54,15 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // get the image from the 'info' parameter
+        guard let pickedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected an image but was provided with : \(info)")
+        }
+        
+        ImageView.image = pickedImage
+        dismiss(animated: true, completion: nil)
+    }
 }
 
