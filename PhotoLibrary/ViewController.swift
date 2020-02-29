@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     //IBActions
     @IBAction func openCameraBtnPressed(_ sender: Any) {
+        openCamera()
     }
     
     @IBAction func openPhotoLibBtnPressed(_ sender: Any) {
@@ -34,8 +35,17 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     
     private func openCamera(){
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            
+            // create an instance of the UIImagePickerController to access its features
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    private func openPhotoLib(){
+        
     }
 }
 
