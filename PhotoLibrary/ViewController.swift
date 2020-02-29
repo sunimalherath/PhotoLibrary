@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func openPhotoLibBtnPressed(_ sender: Any) {
+        openPhotoLib()
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
@@ -45,7 +46,13 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     }
     
     private func openPhotoLib(){
-        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
 }
 
