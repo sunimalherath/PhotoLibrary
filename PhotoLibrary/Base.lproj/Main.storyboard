@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,73 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhotoLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Photo App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-HS-jpx">
+                                <rect key="frame" x="20" y="94" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5I-WM-QIf">
+                                <rect key="frame" x="22" y="170" width="372" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Open Camera"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urg-C1-K3p">
+                                <rect key="frame" x="20" y="171.5" width="374" height="30"/>
+                                <state key="normal" title="Open Photo Library"/>
+                                <connections>
+                                    <action selector="openCameraBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7q-G6-Yii"/>
+                                    <action selector="openPhotoLibBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNP-7g-kf0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgE-41-HMU">
+                                <rect key="frame" x="190" y="832" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCc-GF-1DR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNU-ni-Qkv">
+                                <rect key="frame" x="20" y="241.5" width="374" height="543"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="543" id="6gf-sg-ugQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="emx-HS-jpx" secondAttribute="trailing" constant="20" id="1pu-v4-3wu"/>
+                            <constraint firstItem="CNU-ni-Qkv" firstAttribute="trailing" secondItem="W5I-WM-QIf" secondAttribute="trailing" id="Edp-68-qtd"/>
+                            <constraint firstItem="CNU-ni-Qkv" firstAttribute="top" secondItem="urg-C1-K3p" secondAttribute="bottom" constant="40" id="QhZ-LV-hRz"/>
+                            <constraint firstItem="urg-C1-K3p" firstAttribute="top" secondItem="emx-HS-jpx" secondAttribute="bottom" constant="50" id="VXT-Nw-z95"/>
+                            <constraint firstItem="CNU-ni-Qkv" firstAttribute="top" secondItem="W5I-WM-QIf" secondAttribute="bottom" constant="41.5" id="YNw-Hh-M7Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNU-ni-Qkv" secondAttribute="trailing" constant="20" id="d0a-ch-WFa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="urg-C1-K3p" secondAttribute="trailing" constant="20" id="d9u-6Q-VTn"/>
+                            <constraint firstItem="W5I-WM-QIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="dT8-aJ-tcc"/>
+                            <constraint firstItem="emx-HS-jpx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gzO-Ap-Ngd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="urg-C1-K3p" secondAttribute="trailing" constant="20" id="lsz-gv-Aul"/>
+                            <constraint firstItem="emx-HS-jpx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="osb-OA-kdn"/>
+                            <constraint firstItem="sgE-41-HMU" firstAttribute="centerX" secondItem="CNU-ni-Qkv" secondAttribute="centerX" id="rSD-qA-gP5"/>
+                            <constraint firstItem="urg-C1-K3p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tgT-UF-ab8"/>
+                            <constraint firstItem="urg-C1-K3p" firstAttribute="top" secondItem="emx-HS-jpx" secondAttribute="bottom" constant="50" id="vHl-SS-yNF"/>
+                            <constraint firstItem="sgE-41-HMU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vk0-ng-M8S"/>
+                            <constraint firstItem="urg-C1-K3p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y7h-g1-w8p"/>
+                            <constraint firstItem="CNU-ni-Qkv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="z35-L0-seC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="ImageView" destination="CNU-ni-Qkv" id="Cla-1G-qrh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-193" y="102"/>
         </scene>
     </scenes>
 </document>

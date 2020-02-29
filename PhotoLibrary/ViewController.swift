@@ -9,12 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // IBOutlets
+    @IBOutlet weak var ImageView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    //IBActions
+    @IBAction func openCameraBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func openPhotoLibBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func saveBtnPressed(_ sender: Any) {
+    }
+}
 
-
+extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    private func openCamera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            
+        }
+    }
 }
 
